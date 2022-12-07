@@ -91,8 +91,8 @@ class PGLearner:
             num_workers=os.cpu_count()
             )
 
-        self.autocast = torch.cuda.amp.autocast(enabled=True, dtype=torch.half)
-        self.scaler = torch.cuda.amp.GradScaler(enabled=True, init_scale=hp.AMP_SCALE)
+        self.autocast = torch.cuda.amp.autocast(enabled=hp.USE_AMP, dtype=torch.half)
+        self.scaler = torch.cuda.amp.GradScaler(enabled=hp.USE_AMP, init_scale=hp.AMP_SCALE)
 
         self.step = 0
 
